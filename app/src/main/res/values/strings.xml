@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">IPN2Data</string>
+
+    <!-- Экран "О программе" -->
+    <string name="about_title">О программе</string>
+    <string name="about_description">Приложение для проверки, декодирования и генерации идентификационных налоговых номеров.</string>
+    <string name="about_developer">Разработчик</string>
+    <string name="about_version">Версия %1$s (%2$s)</string>
+    <string name="about_privacy">Конфиденциальность</string>
+    <string name="about_privacy_text">Проверка, декодирование и генерация выполняются непосредственно на устройстве. Для этих операций подключение к интернету не требуется.</string>
+    <string name="about_technologies">Создано с использованием Kotlin и Jetpack Compose</string>
+
+    <string name="about_copyright" translatable="false">© %1$d %2$s</string>
+    <string name="about_author" translatable="false">ChSV</string>
+    <string name="about_telegram" translatable="false">Telegram</string>
+    <string name="about_github" translatable="false">GitHub</string>
+
+    <!-- Ссылки -->
+    <string name="author_telegram_url" translatable="false">https://t.me/chsv29</string>
+    <string name="author_github_url" translatable="false">https://github.com/ChernyshchukS/IPN2Data</string>
+
 </resources>
