@@ -1,6 +1,7 @@
 <img src="./assets/ic_launcher.png" alt="IPN2Data" width="100">
 
 # IPN2Data
+
 Извлечение данных из индивидуального налогового номера (ИПН)
 
 ## Описание
@@ -15,3 +16,10 @@
 
 - Вводите известные Вам ИПН и получайте данные, которые они содержат.
 - Проверяйте корректность полученных ИПН
+- Создавайте ИПН по заданным условиям
+
+## Аналогичные ресурсы
+
+- [deltasoft.dp.ua](https://deltasoft.dp.ua/rus/service/inn/)
+- [ind-kod.org.ua](https://ind-kod.org.ua/)
+- [https://d-nik.site/ru/](https://d-nik.site/ru/onlajn-servisy/opredelit-datu-rozhdeniya-i-pol-po-kodu)
