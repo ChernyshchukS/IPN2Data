@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "IPN2Data"
 include(":app")
+include(":rnokpp")
