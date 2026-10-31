@@ -13,6 +13,7 @@ navigationCompose = "2.10.2"
 # Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin.
 # The actual metadata version is 2.4.0, but the compiler version 2.2.0 can read versions up to 2.3.0.
 kotlinxSerializationJson = "1.7.3"
+jetbrainsKotlinJvm = "2.2.10"
 
 [libraries]
 androidx-compose-material3-adaptive-navigation-suite = { module = "androidx.compose.material3:material3-adaptive-navigation-suite" }
@@ -37,3 +38,4 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
