@@ -19,7 +19,7 @@ sealed interface AppDestination {
 
     @Serializable
     data class Result(
-        val rnokpp: String
+        val inputNumber: String
     ) : AppDestination
 
 }
