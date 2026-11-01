@@ -164,10 +164,10 @@ private fun AppNavHost(
 
             ValidateScreen(
 
-                onShowResult = { rnokpp ->
+                onShowResult = { inputNumber ->
 
                     navController.navigate(
-                        AppDestination.Result(rnokpp)
+                        AppDestination.Result(inputNumber)
                     )
 
                 }
@@ -200,7 +200,7 @@ private fun AppNavHost(
 
             ResultScreen(
 
-                rnokpp = arguments.rnokpp,
+                inputNumber = arguments.inputNumber,
 
                 onBack = {
                     navController.popBackStack()

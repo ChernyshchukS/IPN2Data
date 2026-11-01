@@ -17,7 +17,10 @@ import androidx.compose.runtime.setValue
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import pp.chsv.rnokpp.Rnokpp
+import pp.chsv.ipn2data.R
 
 
 @Composable
@@ -25,7 +28,7 @@ fun ValidateScreen(
     onShowResult: (String) -> Unit
 ) {
 
-    var rnokpp by rememberSaveable {
+    var inputNumber by rememberSaveable {
         mutableStateOf("")
     }
 
@@ -42,19 +45,19 @@ fun ValidateScreen(
     ) {
 
         Text(
-            text = "Проверка ИПН"
+            text = stringResource(R.string.validate_title),
         )
 
         OutlinedTextField(
 
-            value = rnokpp,
+            value = inputNumber,
 
             onValueChange = {
-                rnokpp = it
+                inputNumber = it
             },
 
             label = {
-                Text("Введите ИПН")
+                Text(stringResource(R.string.validate_hint))
             },
 
             singleLine = true
@@ -63,16 +66,29 @@ fun ValidateScreen(
         Button(
 
             onClick = {
-                onShowResult(rnokpp)
+                val result = runCatching {
+                    Rnokpp.parse(inputNumber)
+                }
+
+                result.onSuccess { rnokpp ->
+                    // Номер имеет правильный формат.
+                    onShowResult(inputNumber)
+// TODO: вывод в этом же окне rnokpp
+                }
+
+                result.onFailure { error ->
+                    // Ошибка формата.
+                    inputNumber = error.message!!
+                }
             },
 
-            enabled = rnokpp.isNotBlank(),
+            enabled = inputNumber.isNotBlank(),
 
             modifier = Modifier.padding(top = 16.dp)
 
         ) {
 
-            Text("Проверить")
+            Text(stringResource(R.string.validate_button))
         }
     }
 }

@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">IPN2Data</string>
 
+    <!-- Экран "Проверка" -->
+    <string name="validate_title">Проверка ИПН</string>
+    <string name="validate_hint">Введите ИПН</string>
+    <string name="validate_button">Проверить</string>
+
+    <!-- Экран "Результат" -->
+    <string name="result_title">Результат проверки для числа %1$s</string>
+    <string name="result_birthDate">Дата рождения: %1$s</string>
+    <string name="result_sequence">Порядковый номер: %1$s</string>
+    <string name="result_gender">Пол: %1$s</string>
+    <string name="result_controlDigit">Контрольная цифра: %1$s</string>
+    <string name="result_expectedControlDigit">Правильная контрольная цифра: %1$s</string>
+    <string name="result_back">Назад</string>
+
     <!-- Экран "О программе" -->
     <string name="about_title">О программе</string>
     <string name="about_description">Приложение для проверки, декодирования и генерации идентификационных налоговых номеров.</string>
