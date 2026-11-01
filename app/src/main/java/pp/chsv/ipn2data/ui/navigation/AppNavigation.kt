@@ -25,6 +25,7 @@ import pp.chsv.ipn2data.ui.screens.ResultScreen
 
 import androidx.compose.material3.Icon
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import pp.chsv.ipn2data.R
 
 @Composable
@@ -77,12 +78,12 @@ fun AppNavigation() {
 
             mainDestinations.forEach { destination ->
 
-                val title = when (destination) {
-                    AppDestination.Validate -> "Проверка"
-                    AppDestination.Decode -> "Расшифровка"
-                    AppDestination.Generate -> "Генерация"
-                    AppDestination.About -> "О программе"
-                    else -> ""
+                val titleRes = when (destination) {
+                    AppDestination.Validate -> R.string.validate_title
+                    AppDestination.Decode -> R.string.decode_title
+                    AppDestination.Generate -> R.string.generate_title
+                    AppDestination.About -> R.string.about_title
+                    else -> R.string.app_name
                 }
 
                 // Проверяем, выбран ли текущий раздел
@@ -114,12 +115,12 @@ fun AppNavigation() {
                     icon = {
                         Icon(
                             painter = painterResource(id = icon),
-                            contentDescription = title
+                            contentDescription = stringResource(id = titleRes)
                         )
                     },
 
                     label = {
-                        Text(text = title)
+                        Text(text = stringResource(id = titleRes))
                     },
 
                     selected = selected,
@@ -174,7 +175,7 @@ private fun AppNavHost(
             )
         }
 
-        // Расшифровка
+        // Декодирование
         composable<AppDestination.Decode> {
 
             DecodeScreen()

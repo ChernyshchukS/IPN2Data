@@ -1,13 +1,35 @@
 <resources>
     <string name="app_name">IPN2Data</string>
 
+    <!-- Экран "Декодирование" -->
+    <string name="generate_title">Генерация</string>
+
+    <!-- Экран "Декодирование" -->
+    <string name="decode_title">Декодирование</string>
+    <string name="decode_textFieldLabel">Введите десятизначный номер</string>
+    <string name="decode_textFieldPlaceholder">Десятизначный номер</string>
+    <string name="decode_textFieldSupportingTextIsEmpty">Введите номер</string>
+    <string name="decode_textFieldSupportingTextLengthLs10">Введено %1$s из 10 цифр</string>
+    <string name="decode_textFieldSupportingTextIsValid">Формат номера корректен</string>
+    <string name="decode_buttonErrorMessage">Ошибка декодирования номера</string>
+    <string name="decode_buttonText">Декодировать</string>
+    <!-- Карточка результатов" -->
+    <string name="decode_result_title">Результат декодирования номера %1$s</string>
+    <string name="decode_result_birthDate">Дата рождения: %1$s</string>
+    <string name="decode_result_sequence">Порядковый номер: %1$s</string>
+    <string name="decode_result_gender">Пол: %1$s</string>
+    <string name="decode_result_genderMale">мужской</string>
+    <string name="decode_result_genderFemale">женский</string>
+    <string name="decode_result_controlDigit">Контрольная цифра: %1$s</string>
+    <string name="decode_result_expectedControlDigit">Правильная контрольная цифра: %1$s</string>
+
     <!-- Экран "Проверка" -->
-    <string name="validate_title">Проверка ИПН</string>
-    <string name="validate_hint">Введите ИПН</string>
+    <string name="validate_title">Проверка</string>
+    <string name="validate_hint">Введите номер</string>
     <string name="validate_button">Проверить</string>
 
     <!-- Экран "Результат" -->
-    <string name="result_title">Результат проверки для числа %1$s</string>
+    <string name="result_title">Результат проверки для номера %1$s</string>
     <string name="result_birthDate">Дата рождения: %1$s</string>
     <string name="result_sequence">Порядковый номер: %1$s</string>
     <string name="result_gender">Пол: %1$s</string>
