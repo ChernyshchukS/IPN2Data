@@ -28,12 +28,12 @@ class Rnokpp private constructor(
 
         fun parse(number: String): Rnokpp {
 
-            require(number.length == 10) {
-                "ИНН должен содержать ровно 10 цифр"
+            require(number.all { it in '0'..'9' }) {
+                "Номер должен содержать только цифры"
             }
 
-            require(number.all { it in '0'..'9' }) {
-                "ИНН должен содержать только цифры"
+            require(number.length == 10) {
+                "Номер должен содержать ровно из 10 цифр"
             }
 
             return Rnokpp(number)

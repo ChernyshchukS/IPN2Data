@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 
 import androidx.compose.runtime.Composable
@@ -22,7 +24,8 @@ import pp.chsv.rnokpp.Rnokpp
 @Composable
 fun ResultScreen(
     inputNumber: String,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
 
     val rnokpp = Rnokpp.parse(inputNumber)
@@ -69,62 +72,71 @@ fun ResultScreen(
 
     ) {
 
-        Text(
-            text = stringResource(
-                R.string.result_title,
-                rnokpp.number
-            )
-        )
-
-        Text(
-            text = stringResource(
-                R.string.result_birthDate,
-                rnokpp.birthDate
-            ),
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        Text(
-            text = stringResource(
-                R.string.result_sequence,
-                rnokpp.sequence
-            ),
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        Text(
-            text = stringResource(
-                R.string.result_gender,
-                rnokpp.gender
-            ),
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        Text(
-            text = if (rnokpp.isValid)
-                stringResource(
-                    R.string.result_controlDigit,
-                    rnokpp.controlDigit
-                )
-            else
-                stringResource(
-                    R.string.result_expectedControlDigit,
-                    rnokpp.expectedControlDigit
-                ),
-            modifier = Modifier.padding(top = 16.dp)
-        )
-
-        Button(
-
-            onClick = onBack,
-
-            modifier = Modifier.padding(top = 24.dp)
-
+        Card(
+            modifier = modifier.fillMaxWidth()
         ) {
 
-            Text(
-                stringResource(R.string.result_back)
-            )
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = stringResource(
+                        R.string.result_title,
+                        rnokpp.number
+                    )
+                )
+
+                Text(
+                    text = stringResource(
+                        R.string.result_birthDate,
+                        rnokpp.birthDate
+                    ),
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+
+                Text(
+                    text = stringResource(
+                        R.string.result_sequence,
+                        rnokpp.sequence
+                    ),
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+
+                Text(
+                    text = stringResource(
+                        R.string.result_gender,
+                        rnokpp.gender
+                    ),
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+
+                Text(
+                    text = if (rnokpp.isValid)
+                        stringResource(
+                            R.string.result_controlDigit,
+                            rnokpp.controlDigit
+                        )
+                    else
+                        stringResource(
+                            R.string.result_expectedControlDigit,
+                            rnokpp.expectedControlDigit
+                        ),
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+            }
+            Button(
+
+                onClick = onBack,
+
+                modifier = Modifier.fillMaxWidth()
+
+            ) {
+
+                Text(
+                    stringResource(R.string.result_back)
+                )
+            }
         }
     }
 }
