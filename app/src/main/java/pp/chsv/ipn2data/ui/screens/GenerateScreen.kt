@@ -23,11 +23,13 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import pp.chsv.ipn2data.R
 import pp.chsv.rnokpp.Rnokpp
 
 import java.time.Instant
@@ -122,13 +124,13 @@ fun GenerateScreen(
     val genderHint = when {
 
         !isGenderValid ->
-            "Введите цифру от 0 до 9"
+            stringResource(R.string.generate_isGenderValid)
 
         genderDigit.toInt() % 2 == 0 ->
-            "женский"
+            stringResource(R.string.app_genderFemale)
 
         else ->
-            "мужской"
+            stringResource(R.string.app_genderMale)
     }
 
     val canGenerate =
@@ -172,7 +174,9 @@ fun GenerateScreen(
                         }
                     }
                 ) {
-                    Text("OK")
+                    Text(
+                        stringResource(R.string.generate_datePickerOk)
+                    )
                 }
             },
 
@@ -183,7 +187,9 @@ fun GenerateScreen(
                         showDatePicker = false
                     }
                 ) {
-                    Text("Отмена")
+                    Text(
+                        stringResource(R.string.generate_datePickerCancel)
+                    )
                 }
             }
         ) {
@@ -217,7 +223,7 @@ fun GenerateScreen(
         // -------------------------------
 
         Text(
-            text = "Генерация номера",
+            text = stringResource(R.string.generate_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -230,10 +236,8 @@ fun GenerateScreen(
         // -------------------------------
 
         Text(
-            text = "Введите дату рождения, " +
-                    "порядковый номер и цифру пола.",
-            style =
-                MaterialTheme.typography.bodyMedium
+            text = stringResource(R.string.generate_description),
+            style = MaterialTheme.typography.bodyMedium
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -256,11 +260,15 @@ fun GenerateScreen(
                 onValueChange = {},
 
                 label = {
-                    Text("Дата рождения")
+                    Text(
+                        stringResource(R.string.generate_dateOfBirth)
+                    )
                 },
 
                 placeholder = {
-                    Text("YYYY-MM-DD")
+                    Text(
+                        stringResource(R.string.generate_dateOfBirth_placeHolder)
+                    )
                 },
 
                 readOnly = true,
@@ -320,15 +328,21 @@ fun GenerateScreen(
             },
 
             label = {
-                Text("Порядковый номер")
+                Text(
+                    stringResource(R.string.generate_sequenceNumber)
+                )
             },
 
             placeholder = {
-                Text("000")
+                Text(
+                    stringResource(R.string.generate_sequenceNumber_placeHolder)
+                )
             },
 
             supportingText = {
-                Text("Ровно 3 цифры")
+                Text(
+                    stringResource(R.string.generate_sequenceNumber_supportingText)
+                )
             },
 
             keyboardOptions =
@@ -368,11 +382,15 @@ fun GenerateScreen(
             },
 
             label = {
-                Text("Цифра пола")
+                Text(
+                    stringResource(R.string.generate_genderDigit)
+                )
             },
 
             placeholder = {
-                Text("0–9")
+                Text(
+                    stringResource(R.string.generate_genderDigit_placeholder)
+                )
             },
 
             supportingText = {
@@ -438,8 +456,7 @@ fun GenerateScreen(
                     generatedRnokpp = null
 
                     generationError =
-                        e.message
-                            ?: "Ошибка генерации номера"
+                        (e.message ?: R.string.generate_error) as String?
                 }
             },
 
@@ -450,7 +467,9 @@ fun GenerateScreen(
                 .height(52.dp)
         ) {
 
-            Text("Сгенерировать")
+            Text(
+                stringResource(R.string.generate_button)
+            )
         }
 
         // -------------------------------
@@ -501,20 +520,25 @@ private fun GenerateResultCard(
         ) {
 
             Text(
-                text = "Сгенерированный номер",
+                text = stringResource(R.string.generate_generatedNumber),
                 style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
 
             HorizontalDivider()
 
             Text(
-                text = rnokpp.number
+                text = rnokpp.number,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center
             )
 
             // -------------------------------
             // КНОПКА КОПИРОВАНИЯ
             // -------------------------------
+            val clipboardLabel = stringResource(R.string.generate_number)
+            val copiedMessage = stringResource(R.string.generate_numberCopied)
 
             OutlinedButton(
                 onClick = {
@@ -523,20 +547,22 @@ private fun GenerateResultCard(
                     ) as ClipboardManager
 
                     clipboard.setPrimaryClip(
-                        ClipData.newPlainText("номер", rnokpp.number)
+                        ClipData.newPlainText(clipboardLabel, rnokpp.number)
                     )
 
                     if (Build.VERSION.SDK_INT < 33) {
                         Toast.makeText(
                             context,
-                            "Номер скопирован",
+                            copiedMessage,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Копировать номер")
+                Text(
+                    stringResource(R.string.generate_btnCopyNumber)
+                )
             }
         }
     }

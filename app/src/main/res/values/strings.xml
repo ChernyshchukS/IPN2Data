@@ -1,8 +1,27 @@
 <resources>
     <string name="app_name">IPN2Data</string>
+    <string name="app_genderMale">мужской</string>
+    <string name="app_genderFemale">женский</string>
 
-    <!-- Экран "Декодирование" -->
+    <!-- Экран "Генерация" -->
     <string name="generate_title">Генерация</string>
+    <string name="generate_isGenderValid">Введите цифру от 0 до 9</string>
+    <string name="generate_datePickerOk">Да</string>
+    <string name="generate_datePickerCancel">Отмена</string>
+    <string name="generate_description">Введите дату рождения порядковый номер и цифру пола.</string>
+    <string name="generate_dateOfBirth">Дата рождения</string>
+    <string name="generate_dateOfBirth_placeHolder">ГГГГ-ММ-ДД</string>
+    <string name="generate_sequenceNumber">Порядковый номер</string>
+    <string name="generate_sequenceNumber_placeHolder" translatable="false">000</string>
+    <string name="generate_sequenceNumber_supportingText">Ровно 3 цифры</string>
+    <string name="generate_genderDigit">Цифра пола</string>
+    <string name="generate_genderDigit_placeholder" translatable="false">0–9</string>
+    <string name="generate_button">Сгенерировать</string>
+    <string name="generate_error">Ошибка генерации номера</string>
+    <string name="generate_generatedNumber">Сгенерированный номер</string>
+    <string name="generate_btnCopyNumber">Копировать номер</string>
+    <string name="generate_numberCopied">Номер скопирован</string>
+    <string name="generate_number">номер</string>
 
     <!-- Экран "Декодирование" -->
     <string name="decode_title">Декодирование</string>
@@ -17,9 +36,8 @@
     <string name="decode_result_title">Результат декодирования номера %1$s</string>
     <string name="decode_result_birthDate">Дата рождения: %1$s</string>
     <string name="decode_result_sequence">Порядковый номер: %1$s</string>
+    <string name="decode_result_sequenceGender">Порядковый номер с учетом пола: %1$s</string>
     <string name="decode_result_gender">Пол: %1$s</string>
-    <string name="decode_result_genderMale">мужской</string>
-    <string name="decode_result_genderFemale">женский</string>
     <string name="decode_result_controlDigit">Контрольная цифра: %1$s</string>
     <string name="decode_result_expectedControlDigit">Правильная контрольная цифра: %1$s</string>
 
