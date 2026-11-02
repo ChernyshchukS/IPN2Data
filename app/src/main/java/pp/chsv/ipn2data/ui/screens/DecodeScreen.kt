@@ -103,10 +103,6 @@ fun DecodeScreen(
                 Text(stringResource(R.string.decode_textFieldLabel))
             },
 
-//            placeholder = {
-//                Text(stringResource(R.string.decode_textFieldPlaceholder))
-//            },
-
             supportingText = {
 
                 when {
@@ -168,7 +164,6 @@ fun DecodeScreen(
                     convertedValue = null
 
                     errorMessage =
-//                        error.message ?: "Ошибка декодирования номера"
                         (error.message ?: R.string.decode_buttonErrorMessage) as String?
                 }
             },
@@ -181,7 +176,7 @@ fun DecodeScreen(
             Text(stringResource(R.string.decode_buttonText))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // --------------------------------------------------
         // Результат
@@ -222,6 +217,7 @@ private fun DecodeResultCard(
                     rnokpp.number
                 ),
                 style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
 
@@ -243,10 +239,17 @@ private fun DecodeResultCard(
 
             Text(
                 text = stringResource(
+                    pp.chsv.ipn2data.R.string.decode_result_sequenceGender,
+                    rnokpp.sequenceGender
+                )
+            )
+
+            Text(
+                text = stringResource(
                     pp.chsv.ipn2data.R.string.decode_result_gender,
                     when (rnokpp.gender) {
-                        Gender.MALE -> stringResource(R.string.decode_result_genderMale)
-                        Gender.FEMALE -> stringResource(R.string.decode_result_genderFemale)
+                        Gender.MALE -> stringResource(R.string.app_genderMale)
+                        Gender.FEMALE -> stringResource(R.string.app_genderFemale)
                     }
                 )
             )

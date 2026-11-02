@@ -81,7 +81,7 @@ fun AboutScreen() {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         // Описание
         Text(
@@ -91,7 +91,7 @@ fun AboutScreen() {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Информация о разработчике
         Card(
@@ -103,16 +103,18 @@ fun AboutScreen() {
         ) {
 
             Column(
-                modifier = Modifier.padding(20.dp)
+                modifier = Modifier.padding(16.dp)
             ) {
 
                 Text(
                     text = stringResource(R.string.about_developer),
                     style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
                     fontWeight = FontWeight.SemiBold
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
                     text = stringResource(R.string.about_author),
@@ -122,8 +124,6 @@ fun AboutScreen() {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 HorizontalDivider()
-
-                Spacer(modifier = Modifier.height(8.dp))
 
                 // Telegram
                 AboutLink(
@@ -155,16 +155,18 @@ fun AboutScreen() {
         ) {
 
             Column(
-                modifier = Modifier.padding(20.dp)
+                modifier = Modifier.padding(16.dp)
             ) {
 
                 Text(
                     text = stringResource(R.string.about_privacy),
                     style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
                     fontWeight = FontWeight.SemiBold
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
                     text = stringResource(R.string.about_privacy_text),
@@ -174,7 +176,7 @@ fun AboutScreen() {
             }
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Copyright
         Text(
@@ -212,7 +214,7 @@ private fun AboutLink(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(vertical = 12.dp)
+            .padding(vertical = 16.dp)
     ) {
 
         Text(
@@ -231,56 +233,3 @@ private fun AboutLink(
         )
     }
 }
-
-/*
-Преимущества ListItem:
-- Стандартный компонент Material 3.
-- Автоматически применяет подходящие отступы.
-- Корректно работает с масштабированием шрифтов.
-- Поддерживает дополнительные иконки.
-- Не требует ручного размещения Spacer.
-При желании можно добавить иконку открытия внешней ссылки.
-trailingContent = {
-    Icon(
-        painter = painterResource(R.drawable.ic_open_in_new),
-        contentDescription = null
-    )
-}
-*/
-
-/*
-@Composable
-private fun AboutLink(
-    title: String,
-    subtitle: String,
-    onClick: () -> Unit
-) {
-    ListItem(
-        headlineContent = {
-            Text(
-                text = title,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Medium
-            )
-        },
-        supportingContent = {
-            Text(
-                text = subtitle,
-                fontSize = 12.sp,
-            )
-        },
-        modifier = Modifier.clickable(
-            onClick = onClick
-        ),
-        colors = ListItemDefaults.colors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
-        ),
-        trailingContent = {
-            Icon(
-                painter = painterResource(R.drawable.ic_open_in_new),
-                contentDescription = null
-            )
-        }
-    )
-}
-*/
