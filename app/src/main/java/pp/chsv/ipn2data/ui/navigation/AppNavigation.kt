@@ -27,6 +27,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import pp.chsv.ipn2data.R
+import pp.chsv.rnokpp.Rnokpp
 
 @Composable
 fun AppNavigation() {
@@ -184,7 +185,16 @@ private fun AppNavHost(
         // Генерация
         composable<AppDestination.Generate> {
 
-            GenerateScreen()
+            GenerateScreen(
+                generateRnokpp = { date, sequence, gender ->
+
+                    Rnokpp.generate(
+                        date,
+                        sequence,
+                        gender
+                    )
+                }
+            )
         }
 
         // О программе
