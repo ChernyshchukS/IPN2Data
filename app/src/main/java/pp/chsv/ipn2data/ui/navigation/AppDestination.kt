@@ -6,9 +6,6 @@ import kotlinx.serialization.Serializable
 sealed interface AppDestination {
 
     @Serializable
-    data object Validate : AppDestination
-
-    @Serializable
     data object Decode : AppDestination
 
     @Serializable
@@ -16,10 +13,5 @@ sealed interface AppDestination {
 
     @Serializable
     data object About : AppDestination
-
-    @Serializable
-    data class Result(
-        val inputNumber: String
-    ) : AppDestination
 
 }

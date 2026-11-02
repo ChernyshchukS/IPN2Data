@@ -15,13 +15,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
 
-import pp.chsv.ipn2data.ui.screens.ValidateScreen
 import pp.chsv.ipn2data.ui.screens.DecodeScreen
 import pp.chsv.ipn2data.ui.screens.GenerateScreen
 import pp.chsv.ipn2data.ui.screens.AboutScreen
-import pp.chsv.ipn2data.ui.screens.ResultScreen
 
 import androidx.compose.material3.Icon
 import androidx.compose.ui.res.painterResource
@@ -40,7 +37,6 @@ fun AppNavigation() {
     val currentDestination = backStackEntry?.destination
 
     val mainDestinations = listOf(
-        AppDestination.Validate,
         AppDestination.Decode,
         AppDestination.Generate,
         AppDestination.About
@@ -80,7 +76,6 @@ fun AppNavigation() {
             mainDestinations.forEach { destination ->
 
                 val titleRes = when (destination) {
-                    AppDestination.Validate -> R.string.validate_title
                     AppDestination.Decode -> R.string.decode_title
                     AppDestination.Generate -> R.string.generate_title
                     AppDestination.About -> R.string.about_title
@@ -92,10 +87,6 @@ fun AppNavigation() {
 
                 // Выбираем иконку в зависимости от состояния
                 val icon = when (destination) {
-
-                    AppDestination.Validate ->
-                        if (selected) R.drawable.ic_fact_check_filled
-                        else R.drawable.ic_fact_check_outlined
 
                     AppDestination.Decode ->
                         if (selected) R.drawable.ic_manage_search_filled
@@ -129,7 +120,7 @@ fun AppNavigation() {
                     onClick = {
                         navController.navigate(destination) {
 
-                            popUpTo(AppDestination.Validate) {
+                            popUpTo(AppDestination.Decode) {
                                 saveState = true
                             }
 
@@ -157,24 +148,9 @@ private fun AppNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = AppDestination.Validate,
+        startDestination = AppDestination.Decode,
         modifier = Modifier.fillMaxSize()
     ) {
-
-        // Проверка
-        composable<AppDestination.Validate> {
-
-            ValidateScreen(
-
-                onShowResult = { inputNumber ->
-
-                    navController.navigate(
-                        AppDestination.Result(inputNumber)
-                    )
-
-                }
-            )
-        }
 
         // Декодирование
         composable<AppDestination.Decode> {
@@ -201,22 +177,6 @@ private fun AppNavHost(
         composable<AppDestination.About> {
 
             AboutScreen()
-        }
-
-        // Вложенный экран результата
-        composable<AppDestination.Result> { entry ->
-
-            val arguments =
-                entry.toRoute<AppDestination.Result>()
-
-            ResultScreen(
-
-                inputNumber = arguments.inputNumber,
-
-                onBack = {
-                    navController.popBackStack()
-                }
-            )
         }
     }
 }
