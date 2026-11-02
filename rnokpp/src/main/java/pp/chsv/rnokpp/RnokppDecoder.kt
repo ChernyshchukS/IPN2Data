@@ -4,7 +4,6 @@ import java.time.LocalDate
 
 internal object RnokppDecoder {
 
-    private val baseDate = LocalDate.of(1899, 12, 31)
 
     /**
      * Извлечение даты рождения.
@@ -13,7 +12,7 @@ internal object RnokppDecoder {
 
         val days = number.substring(0, 5).toLong()
 
-        return baseDate.plusDays(days)
+        return Rnokpp.BASE_DATE.plusDays(days)
     }
 
     /**
@@ -22,6 +21,14 @@ internal object RnokppDecoder {
     fun getSequence(number: String): Int {
 
         return number.substring(5, 8).toInt()
+    }
+
+    /**
+     * Извлечение четырёхзначной порядковой части.
+     */
+    fun getSequenceGender(number: String): Int {
+
+        return number.substring(5, 9).toInt()
     }
 
     /**
