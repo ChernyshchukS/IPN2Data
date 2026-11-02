@@ -176,7 +176,7 @@ fun DecodeScreen(
             Text(stringResource(R.string.decode_buttonText))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // --------------------------------------------------
         // Результат

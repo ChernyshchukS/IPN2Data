@@ -229,7 +229,7 @@ fun GenerateScreen(
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         // -------------------------------
         // Поля ввода
@@ -240,7 +240,7 @@ fun GenerateScreen(
             style = MaterialTheme.typography.bodyMedium
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // -------------------------------
         // 1. ДАТА РОЖДЕНИЯ
@@ -271,6 +271,12 @@ fun GenerateScreen(
                     )
                 },
 
+                supportingText = {
+                    Text(
+                        stringResource(R.string.generate_dateOfBirth_supportingText)
+                    )
+                },
+
                 readOnly = true,
 
                 enabled = false,
@@ -286,12 +292,15 @@ fun GenerateScreen(
                             MaterialTheme.colorScheme.outline,
 
                         disabledLabelColor =
+                            MaterialTheme.colorScheme.onSurfaceVariant,
+                        // Цвет supportingText как у активного поля
+                        disabledSupportingTextColor =
                             MaterialTheme.colorScheme.onSurfaceVariant
                     )
             )
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // -------------------------------
         // 2. ПОРЯДКОВЫЙ НОМЕР
@@ -362,7 +371,7 @@ fun GenerateScreen(
                 )
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // -------------------------------
         // 3. ЦИФРА ПОЛА
@@ -426,7 +435,7 @@ fun GenerateScreen(
                 )
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // -------------------------------
         // КНОПКА ГЕНЕРАЦИИ
@@ -485,7 +494,7 @@ fun GenerateScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         // -------------------------------
         // КАРТОЧКА РЕЗУЛЬТАТА
